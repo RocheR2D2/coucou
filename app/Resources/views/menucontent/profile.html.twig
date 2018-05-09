@@ -1,0 +1,82 @@
+{% extends 'base.html.twig' %}
+{% block pageTitle %}Profile{% endblock %}
+{% block body %}
+
+
+    <div class="col-sm-12">
+        <div class="panel panel-primary">
+            <div class="panel-body" style="padding-right:12%; padding-left: 12%">
+                <div class="row">
+
+                    <div class="m-t-20">
+                        <div  class="col-sm-12 col-md-12">
+                            <div class="text-center">
+                                <img src="assets/images/users/avatar-1.jpg" width=150 alt="" class="img-circle">
+                            </div>
+                        </div>
+                        <div  class="col-sm-12 col-md-6">
+                            <div class="form-group">
+                                {{ form_label(form.lastname) }}
+                                {{ form_widget(form.lastname) }}
+                            </div>
+                        </div>
+                        <div  class="col-sm-12 col-md-6">
+                            <div class="form-group">
+                                {{ form_label(form.firstname) }}
+                                {{ form_widget(form.firstname) }}
+                            </div>
+                        </div>
+                        <div  class="col-sm-12 col-md-6">
+                            <div class="form-group">
+                                {{ form_label(form.age) }}
+                                {{ form_widget(form.age) }}
+                            </div>
+                        </div>
+                        <div  class="col-sm-12 col-md-6">
+                            <div class="form-group">
+                                {{ form_label(form.email) }}
+                                {{ form_widget(form.email) }}
+                            </div>
+                        </div>
+                        <div  class="col-sm-12 col-md-6">
+                            <div class="form-group">
+                                {{ form_label(form.post) }}
+                                {{ form_widget(form.post) }}
+                            </div>
+                        </div>
+                        <div  class="col-sm-12 col-md-6">
+                            <div class="form-group">
+                                {{ form_label(form.type) }}
+                                {{ form_widget(form.type) }}
+                            </div>
+                        </div>
+                        <div  class="col-sm-12 col-md-6">
+                            <div class="form-group">
+                                {{ form_label(form.team) }}
+                                {{ form_widget(form.team) }}
+                            </div>
+                        </div>
+                        <div  class="col-sm-12 col-md-6">
+                            <div class="form-group">
+                                {{ form_label(form.status) }}
+                                {{ form_widget(form.status) }}
+                            </div>
+                        </div>
+                        <div  class="col-sm-12 col-md-12 text-center">
+                            <div class="form-group">
+                                {{ form_widget(form.Enregistrer) }}
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+{% block pageTitle %}
+    Calendrier
+{% endblock %}
+{% block stylesheets %}
+    <link href="{{ asset('assets/plugins/fullcalendar/css/fullcalendar.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('assets/plugins/bootstrap-datepicker/css/bootstrap-datepicker.min.css') }}" rel="stylesheet" />
+{% endblock %}
+{% block body %}
+
+
+    <div class="col-sm-12">
+        <div class="panel panel-primary">
+            <div class="panel-body" style="padding-right:12%; padding-left: 12%;">
+                    {% if app.request.hasPreviousSession %}
+                        {%  for message in app.flashes('notice') %}
+                            <div class="alert alert-primary alert-dismissable" role="alert">
+                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                <div class="container">
+                                    {{ message }}
+                                </div>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                <div class="row pull-right">
+                    <label class="btn btn-primary"></label></buton><span><b> Validé </b></span>
+                    <label class="btn btn-warning"></label><span><b> En Cours </b></span>
+                    <label class="btn btn-danger"></label><span><b> Refusé </b></span>
+                </div>
+                <div class="row">
+                    <div id='calendar' class="table-responsive" style="margin-top:30px; margin-bottom: 30px;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        {{ include('absences/displayEventWindow.html.twig', {'subform': form })  }}
+
+
+{% endblock %}
+
+
+{% block javascripts %}
+    <script src="{{ asset('assets/plugins/moment/moment.js') }}"></script>
+    <script src="{{ asset('assets/plugins/fullcalendar/js/fullcalendar.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/fullcalendar/js/locale/fr.js') }}"></script>
+    <script src="{{ asset('assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/bootstrap-datepicker/js/locale/bootstrap-datepicker.fr.js') }}"></script>
+    <script src="{{ asset('assets/js/absences/datepicker.js') }}"></script>
+    <script src="{{ asset('assets/js/absences/calendar.js') }}"></script>
+
+{% endblock %}

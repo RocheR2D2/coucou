@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block pageTitle %}
+{{ app.user.username }}
+{% endblock %}
+
+{% block body %}
+    <div id='calendar' class="col-md-12 col-lg-12" style="margin-top:30px; margin-bottom: 30px;"></div>
+{% endblock %}
+
+{% block stylesheets %}
+    <link href="{{ asset('assets/plugins/fullcalendar3/fullcalendar.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('assets/plugins/bootstrap-datepicker/css/bootstrap-datepicker.min.css') }}" rel="stylesheet" />
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('assets/plugins/moment/moment.js') }}"></script>
+    <script src="{{ asset('assets/plugins/fullcalendar3/fullcalendar.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/bootstrap-datepicker/js/locale/bootstrap-datepicker.fr.js') }}"></script>
+    <!-- <script src="{{ asset('assets/pages/form-advanced.js') }}"></script>  -->
+    <script src="{{ asset('assets/js/absences/datepicker.js') }}"></script>
+    <script>
+        $(document).ready(function() {
+
+            var calendar =  $('#calendar');
+            calendar.fullCalendar({
+                dayClick: function(date) {
+                    alert("ok");
+                }
+            });
+        });
+
+    </script>
+{% endblock %}

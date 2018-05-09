@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+    <link href="{{ asset('assets/plugins/fullcalendar/css/fullcalendar.min.css') }}" rel="stylesheet" />
+{% endblock %}
+{% block body %}
+<div id='calendar2' class="col-md-12 col-lg-12" style="margin-top:30px; margin-bottom:30px;"></div>
+{% endblock %}
+
+{% block javascripts %}
+
+
+<script src="{{ asset('assets/plugins/moment/moment.js') }}"></script>
+<script src="{{ asset('assets/plugins/fullcalendar/js/fullcalendar.min.js') }}"></script>
+<script src="{{ asset('assets/plugins/fullcalendar/js/locale/fr.js') }}"></script>
+        <script>
+        $(document).ready(function() {
+
+            var date = new Date();
+            var d = date.getDate();
+            var m = date.getMonth();
+            var y = date.getFullYear();
+
+            $('#calendar2').fullCalendar({
+                header: {
+                    left: 'month,listYear',
+                    center: 'title',
+                    right: 'prev,next'
+                },
+                editable: false,
+                droppable: true,
+                dayClick: function () {
+                    alert('day clicked');
+                },
+                events: [
+
+                    {
+                        title: 'Validé',
+                        start: new Date(y, m, d, 19, 0),
+                        end: new Date(y, m, d, 22, 30),
+                        allDay: false,
+                    },
+                    {
+                        title: 'En Cours',
+                        start: new Date(y, m, d + 1, 19, 0),
+                        end: new Date(y, m, d + 1, 22, 30),
+                        allDay: false,
+                        color: "rgb(53, 184, 234)",
+                    }
+                ]
+            });
+
+        });
+
+    </script>
+    {% endblock %}

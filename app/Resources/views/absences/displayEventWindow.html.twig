@@ -1,0 +1,63 @@
+<div class="modal fade displayEventModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span> <span class="sr-only">close</span></button>
+                <div id="modalTitle" class="modal-title">
+                        <h4 id="titleDate"></h4>
+                </div>
+            </div>
+            {{ form_start(subform, {'action': path('addEvent'), 'method': 'POST', 'attr' : {'role': 'form', 'id':'add_form'}}) }}
+            <div id="modalBody" class="modal-body">
+                <div class="container">
+                    <div class="row">
+                        <div id="eventslist">
+                            <div id="eventmessage"></div>
+                            <div id="eventstable"></div>
+                        </div>
+                        <div id="newEventForm">
+
+                            <div class="form-group">
+                                {{ form_widget(subform.title) }}
+                            </div><br>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon bg-primary text-white b-0">De</span>
+                                    {{ form_widget(subform.startTime,{ 'value' : "" ,'attr' : {'name': 'start', 'class': 'form-control', 'readonly': true}}) }}
+                                    <span class="input-group-addon bg-primary text-white b-0">à</span>
+                                    {{ form_widget(subform.endTime, { 'attr' : {'name': 'end', 'class': 'form-control', 'placeholder': 'jj/mm/aaaa'}}) }}
+                                </div>
+                            </div><br>
+                            <div class="form-group radio-choice">
+                                <div class="radio radio-primary radio-inline">
+                                    <input type="radio" id="inlineRadio1" value="0" name="radioInline" checked="checked">
+                                    <label for="inlineRadio1"> Journée Complète</label>
+                                </div>
+                                <div class="radio radio-primary radio-inline">
+                                    <input type="radio" id="inlineRadio2" value="1" name="radioInline">
+                                    <label for="inlineRadio2">  Matinée </label>
+                                </div>
+                                <div class="radio radio-primary radio-inline">
+                                    <input type="radio" id="inlineRadio3" value="2" name="radioInline">
+                                    <label for="inlineRadio2"> Après-midi </label>
+                                </div>
+                            </div>
+                            <div class="radio-choice-info">
+                                <p>Veulliez définir votre durée d'abord, puis vous pouvez préciser par journée</p>
+                            </div>
+
+                        </div><br>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <a class="btn btn-success" id="addEvent">Ajouter</a>
+                {{ form_widget(subform.save, {"label" : 'Envoyer', 'id': 'addSubmit', 'attr': {'class': 'btn btn-primary'}}) }}
+                <a type="button" class="btn btn-warning" data-dismiss="modal" id="cancel">Annuler</a>
+            </div>
+
+            {{ form_end(subform) }}
+        </div>
+    </div>
+</div>
